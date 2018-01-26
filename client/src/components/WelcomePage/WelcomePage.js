@@ -10,7 +10,7 @@ const WelcomePage = (props) => {
   and choose for them to be read by the world or completely
   private as your own personal diary.
     </p>
-      <a class="btn red darken-1" href="/auth/google"><i class="fa fa-google left">
+      <a className="btn red darken-1" href="/auth/google"><i className="fa fa-google left">
       </i>Login with Google</a>
     </Aux>
   );
