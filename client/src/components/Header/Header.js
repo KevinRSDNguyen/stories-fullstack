@@ -1,25 +1,33 @@
-// import React from 'react';
+import React from 'react';
+import Aux from './../../hoc/Auxx/Auxx';
 
-// const Header = (props) => {
-//   return (
-//     <nav class="grey darken-3">
-//       <div class="container">
-//         <div class="nav-wrapper">
-//           <a href="/" class="brand-logo center">StoryBooks</a>
-//           <a href="#" data-activates="main-menu" class="button-collapse show-on-large"><i class="fa fa-bars"></i></a>
-//           <!-- RIGHT NAV -->
-//       <ul class="right hide-on-small-only">
-//             {{#if user}}
-//         <li><a href="/dashboard">Welcome Username (placeholder)</a></li>
-//             <li><a href="/auth/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
-//             {{ else}}
-//             <li><a href="/stories"><i class="fa fa-book"></i> Public Stories</a></li>
-//             {{/if}}
-//       </ul>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// };
+const Header = ({ authenticatedUser }) => {
+  let userOptions = (
+    <li><a href="/stories"><i className="fa fa-book"></i> Public Stories</a></li>
+  );
+  if (authenticatedUser) {
+    userOptions = (
+      <Aux>
+        <li><a href="/dashboard">Welcome {authenticatedUser.firstName}</a></li>
+        <li><a href="/stories"><i className="fa fa-book"></i> Public Stories</a></li>
+        <li>
+          <a href="/api/logout"><i className="fa fa-sign-out"></i>Logout</a>
+        </li>
+      </Aux>
+    );
+  }
+  return (
+    <nav className="grey darken-3">
+      <div className="container">
+        <div className="nav-wrapper">
+          <a href="/" className="brand-logo left">Stories Fullstack</a>
+          <ul className="right hide-on-small-only">
+            {userOptions}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+};
 
-// export default Header;
+export default Header;

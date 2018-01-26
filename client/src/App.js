@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchUser } from './store/actions/auth';
 
 import WelcomePage from './components/WelcomePage/WelcomePage';
-// import Header from './components/Header/Header';
+import Header from './components/Header/Header';
 import Aux from './hoc/Auxx/Auxx';
 import './App.css';
 
@@ -15,14 +15,14 @@ class App extends Component {
   render() {
     let routes = (
       <Aux>
-        {/* <Header /> */}
+        <Header authenticatedUser={this.props.authenticatedUser}/>
         <Switch>
           <Route path='/' exact component={WelcomePage} />
         </Switch>
       </Aux>
     );
     return (
-      <div className="container">
+      <div>
         {routes}
       </div>
     );
@@ -31,7 +31,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.auth !== null
+    authenticatedUser: state.auth
   };
 };
 
