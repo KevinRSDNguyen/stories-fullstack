@@ -12,7 +12,7 @@ module.exports = app => {
     '/auth/google/callback',
     passport.authenticate('google'),
     (req, res) => {
-      res.redirect('/');
+      res.redirect('/surveys');
     }
   );
   //User here has the ggl code, ggl strtgy notices and exchanges code for profile.

@@ -1,24 +1,9 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose; 
+const { Schema } = mongoose; // same as schema = mongoose.schema
 
 const userSchema = new Schema({
-  googleID: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true
-  },
-  firstName: {
-    type: String
-  },
-  lastName: {
-    type: String
-  },
-  image: {
-    type: String
-  }
+  googleId: String,
+  credits: {type: Number, default: 0}
 });
 
 mongoose.model('users', userSchema);
